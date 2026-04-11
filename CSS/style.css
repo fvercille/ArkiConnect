@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;        /* CHANGE from overflow-x: hidden to just overflow: hidden */
+    font-family: 'Arial', sans-serif;
+    background-image: url('../Images/newbg1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.477);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0; /* tanggalin na ang padding dito */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 80px; /* ← FIXED HEIGHT DITO, hindi na mag-aajust */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* sundan ang height ng header */
+    padding: 0 0 0 20px; /* tanggalin ang top/bottom padding */
+    position: relative;
+}
+
+.logo img {
+    height: 35px; /* pwede mo na i-adjust ito nang hindi naaapektuhan ang header */
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.navlinks {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navlinks a {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 16px;
+}
+
+.navlinks a:hover {
+    color: #ffdd1b;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.btn {
+    padding: 8px 24px;
+    border-radius: 25px;        /* pill shape */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;      /* spaced out letters look premium */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.login-btn {
+    background-color: #a43825;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(164, 56, 37, 0.4);
+}
+
+.login-btn:hover, .login-btn.active {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.signup-btn {
+    background-color: transparent;
+    color: #a43825;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.signup-btn:hover, .signup-btn.active {
+    background-color: white;
+    color: #a43825;
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    max-height: 100vh;       /* ADD THIS — prevents content from exceeding viewport */
+    padding: 0;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.portal-image {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    opacity: 0;                          /* start hidden */
+    animation: 
+        fadeIn 1s ease-in-out forwards,          /* plays first */
+        pulse 3s ease-in-out 1s infinite;        /* starts after 1s */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1);    filter: brightness(1); }
+    50%  { transform: scale(1.03); filter: brightness(1.15); }
+    100% { transform: scale(1);    filter: brightness(1); }
+}
+
+
+
+.portal-image img {
+    max-width: 700px;        /* smaller width */
+    max-height: 70vh;        /* ADD THIS — limits height to half the screen */
+    margin-top: 100px;
+    width: auto;             /* let it scale naturally */
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-section {
+    display: none;
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    animation: slideUp 0.8s ease-out;
+}
+
+.login-section.show {
+    display: block;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #a43825;
+    outline: none;
+}
+
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    color: #555;
+}
+
+.forgot-link {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.forgot-link a {
+    font-size: 14px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.forgot-link a:hover {
+    color: #a43825;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    background-color: #a43825;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #8a2f1c;
+}
+
+.back-btn {
+    background-color: #6c757d !important;
+}
+
+.back-btn:hover {
+    background-color: #5a6268 !important;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.divider span {
+    background: white;
+    padding: 0 15px;
+    color: #666;
+    position: relative;
+}
+
+.google-btn {
+    width: 100%;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: #3367d6;
+}
+
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+    display: block;
+    opacity: 1;
+}
+
+.success-message {
+    background-color: #efe;
+    color: #363;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.success-message.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .navlinks {
+        display: none;
+    }
+    
+    .header-container {
+        padding: 0 15px;
+    }
+    
+    .auth-buttons {
+        margin-right: 15px;
+    }
+    
+    .main-content {
+        padding: 120px 15px 20px;
+    }
+    
+    .portal-image img {
+        max-width: 300px;
+    }
+    
+    .login-section {
+        padding: 30px 20px;
+    }
+    
+    .logo img {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .auth-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 6px 15px;
+        font-size: 14px;
+    }
+}
+@keyframes shine {
+    0%   { left: -100%; }
+    100% { left: 200%; }
+}
+
+.shine {
+    position: absolute;
+    top: -32px;
+    left: -100%;
+    width: 60%;
+    height: calc(100% + 64px);
+    background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.65) 50%,
+        transparent 80%
+    );
+    animation: shine 2.4s ease-in-out infinite;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 16px;
+}
+
