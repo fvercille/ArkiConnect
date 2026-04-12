@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-include 'db_connect.php';
+
 
 // Disable error reporting for production
 error_reporting(0);
@@ -11,7 +11,7 @@ $message = "";
 $message_type = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli("localhost", "root", "", "user_db"); 
+    require_once __DIR__ . '/db_connect.php'; 
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $tokenStmt->close();
                         
                         // Send verification email
-                        $verification_link = "http://localhost/FinalProject1/PHP/verify_email.php?token=" . $verification_token;
+                        $verification_link = "https://YOUR-RAILWAY-URL.up.railway.app/PHP/verify_email.php?token=" . $verification_token;
                         $email_body = getVerificationEmailTemplate($fullname, $verification_link);
                         
                         if (sendEmail($email, "Verify Your Arki Connect Account", $email_body)) {

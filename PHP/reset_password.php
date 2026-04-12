@@ -13,7 +13,7 @@ if (!isset($_GET['token']) && !isset($_POST['token'])) {
 
 $token = isset($_POST['token']) ? $_POST['token'] : $_GET['token'];
 
-$conn = new mysqli("localhost", "root", "", "user_db");
+require_once __DIR__ . '/db_connect.php';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

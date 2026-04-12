@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Please enter a valid email address.";
         $message_type = "error";
     } else {
-        $conn = new mysqli("localhost", "root", "", "user_db");
+        require_once __DIR__ . '/db_connect.php';
         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $insertStmt->close();
             
             // Send reset email
-            $reset_link = "http://localhost/FinalProject1/PHP/reset_password.php?token=" . $reset_token;
+           $reset_link = "https://YOUR-RAILWAY-URL.up.railway.app/PHP/reset_password.php?token=" . $reset_token;
             $email_body = getPasswordResetEmailTemplate($user['fullname'], $reset_link);
             
             if (sendEmail($email, "Reset Your Arki Connect Password", $email_body)) {

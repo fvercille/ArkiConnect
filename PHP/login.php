@@ -31,7 +31,6 @@ if (isset($_SESSION['role'])) {
     }
 }
 
-include 'db_connect.php';
 
 error_reporting(0);
 ini_set('display_errors', 0);
@@ -40,7 +39,7 @@ $message = "";
 $message_type = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli("localhost", "root", "", "user_db"); 
+    require_once __DIR__ . '/db_connect.php'; 
 
     $studentnum = trim($_POST['studentnum']);
     $email = trim($_POST['email']);
