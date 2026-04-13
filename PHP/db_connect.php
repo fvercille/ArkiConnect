@@ -1,11 +1,14 @@
 <?php
-$host     = getenv('MYSQLHOST') ?: 'mysql.railway.internal';
+$host     = 'mysql.railway.internal';
 $dbname   = getenv('MYSQLDATABASE') ?: 'railway';
-$username = getenv('MYSQLUSER') ?: 'root';
-$password = getenv('MYSQLPASSWORD') ?: 'dUHYDXuiEtCKqpIquUEWabwyOiEhHgMy';
+$username = 'root';
+$password = getenv('MYSQL_ROOT_PASSWORD') ?: getenv('MYSQLPASSWORD');
 $port     = (int)(getenv('MYSQLPORT') ?: '3306');
 
-// Debug
-echo "PASS LENGTH: " . strlen($password) . " | FIRST 3 CHARS: " . substr($password, 0, 3);
-die();
+mysqli_report(MYSQLI_REPORT_OFF);
+$conn = new mysqli($host, $username, $password, $dbname, $port);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
