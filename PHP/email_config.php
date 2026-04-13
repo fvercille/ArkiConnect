@@ -30,7 +30,7 @@ function createMailer() {
 }
 
 // ── Approval email ──
-function //sendApprovalEmail($orgName, $eventTitle, $adminName = 'Admin') {
+function sendApprovalEmail($orgName, $eventTitle, $adminName = 'Admin') {
     try {
         $mail = createMailer();
         $mail->addAddress(ARKICONNECT_EMAIL);
@@ -131,7 +131,7 @@ function sendEventCreatedEmailToStudents($conn, $eventTitle, $eventDate, $eventT
 }
 
 // ── Registration confirmation email ──
-function //sendRegistrationEmailWithDebug($studentEmail, $studentName, $event) {
+function sendRegistrationEmailWithDebug($studentEmail, $studentName, $event) {
     try {
         $mail = createMailer();
         $mail->addAddress($studentEmail, $studentName);
