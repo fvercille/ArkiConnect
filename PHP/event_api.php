@@ -102,7 +102,7 @@ if ($action === 'register') {
         $updateStmt->execute();
 
         // Send confirmation email
-        sendRegistrationEmail($eventData['email'], $eventData['fullname'], $eventData['title'], $eventData['organizer']);
+        //sendRegistrationEmail($eventData['email'], $eventData['fullname'], $eventData['title'], $eventData['organizer']);
 
         // Create notification
         $notifQuery = "INSERT INTO notifications (event_id, user_id, recipient_id, notification_type, message) 
