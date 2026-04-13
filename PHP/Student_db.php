@@ -58,7 +58,7 @@ $userAvatarText = strtoupper(substr($userName, 0, 1));
 // Fetch current month's events for calendar
 $currentYear = date('Y');
 $currentMonth = date('m');
-$conn = new mysqli('localhost', 'root', '', 'user_db');
+require_once __DIR__ . '/db_connect.php';
 
 if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
