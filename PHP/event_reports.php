@@ -3,7 +3,7 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-include 'db_connect.php';
+
 
 $user_id = $_SESSION['user_id'] ?? null;
 $role    = $_SESSION['role']    ?? null;

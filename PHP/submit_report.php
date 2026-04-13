@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connect.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $org_rep_id = $_SESSION['user_id'];

@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     $_SESSION['fullname'] = 'Test Student';
 }
 
-include 'db_connect.php';
+
 
 echo "<h1>🔍 Diagnostic Test</h1>";
 echo "<pre style='background: #f5f5f5; padding: 20px; border-radius: 8px;'>";

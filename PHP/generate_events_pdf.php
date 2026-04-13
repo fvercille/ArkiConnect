@@ -13,7 +13,7 @@ require_once $autoload_path;
 if (!file_exists('db_connect.php')) {
     die("Error: db_connect.php not found in " . __DIR__);
 }
-include 'db_connect.php';
+
 
 use Dompdf\Dompdf;
 use Dompdf\Options;

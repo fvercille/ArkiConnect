@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = new mysqli('localhost', 'root', '', 'user_db');
+require_once __DIR__ . '/db_connect.php';er_db');
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

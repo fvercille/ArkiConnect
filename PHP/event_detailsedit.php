@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include 'db_connect.php'; 
+ 
 
 // Temporarily comment out authentication for testing
 // Uncomment this when you're ready to add authentication back

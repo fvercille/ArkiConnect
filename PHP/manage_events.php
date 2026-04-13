@@ -2,7 +2,7 @@
 session_start();
 $pageTitle = 'Manage Events';
 
-$conn = new mysqli('localhost', 'root', '', 'user_db');
+require_once __DIR__ . '/db_connect.php';er_db');
 if ($conn->connect_error) die('Connection failed: ' . $conn->connect_error);
 
 $userId = $_SESSION['user_id'] ?? null;

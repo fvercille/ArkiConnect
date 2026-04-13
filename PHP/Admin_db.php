@@ -3,9 +3,9 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-include 'db_connect.php'; 
+ 
 
-$login_page_path = 'http://localhost/FinalProject1/PHP/login.php'; 
+$login_page_path = '/PHP/login.php'; 
 $pageTitle = 'Admin Dashboard';
 
 $user_id = $_SESSION['user_id'] ?? null;

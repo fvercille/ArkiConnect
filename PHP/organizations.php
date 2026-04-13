@@ -5,9 +5,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-include 'db_connect.php';
 
-$login_page_path = 'http://localhost/FinalProject1/PHP/login.php';
+
+$login_page_path = '/PHP/login.php';
 
 // Handle logout
 if (isset($_GET['logout'])) {

@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'db_connect.php';
+
 session_start();
 
 $user_role_lower = strtolower($_SESSION['role'] ?? '');

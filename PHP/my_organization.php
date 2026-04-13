@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'db_connect.php'; 
+ 
 session_start();
 
 $user_role_lower = strtolower($_SESSION['role'] ?? '');
@@ -815,7 +815,7 @@ $current_officers = [
                     <button class="btn btn-primary" onclick="toggleEditMode('hero')">
                         <i class="fas fa-edit"></i> Edit Organization Info
                     </button>
-                    <a href="http://localhost:8080/ArkiConnect/PHP/organizations_details.php?id=<?= htmlspecialchars($current_org['id']) ?>&from=org_rep" class="btn">
+                   <a href="/PHP/organizations_details.php?id=<?= htmlspecialchars($current_org['id']) ?>&from=org_rep" class="btn">
     <i class="fas fa-eye"></i> View Public Page
 </a>
                 </div>

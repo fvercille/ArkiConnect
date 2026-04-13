@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-$login_page_path = 'http://localhost/FinalProject1/PHP/login.php';
+$login_page_path = '/PHP/login.php';
 
 if (isset($_GET['logout'])) {
     session_regenerate_id(true);

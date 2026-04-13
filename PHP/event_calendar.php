@@ -7,9 +7,9 @@ error_reporting(E_ALL);
 
 session_start();
 // IMPORTANT: Ensure 'db_connect.php' uses prepared statements (e.g., PDO or mysqli)
-include 'db_connect.php';
 
-$login_page_path = 'http://localhost/FinalProject1/PHP/login.php'; 
+
+$login_page_path = '/PHP/login.php'; 
 
 // --- Security and Session Management ---
 

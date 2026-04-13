@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
-include 'db_connect.php';
+
 include 'email_config.php'; // was email_functions.php
 
 if ($_SESSION['role'] !== 'admin' || empty($_SESSION['user_id'])) {
