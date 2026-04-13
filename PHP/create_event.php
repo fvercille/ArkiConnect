@@ -3,7 +3,7 @@ session_start();
  
 $created_by = $_SESSION['user_id'] ?? 0;
  
-require_once __DIR__ . '/db_connect.php';er_db');
+require_once __DIR__ . '/db_connect.php';
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

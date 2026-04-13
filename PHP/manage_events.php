@@ -2,7 +2,7 @@
 session_start();
 $pageTitle = 'Manage Events';
 
-require_once __DIR__ . '/db_connect.php';er_db');
+require_once __DIR__ . '/db_connect.php';
 if ($conn->connect_error) die('Connection failed: ' . $conn->connect_error);
 
 $userId = $_SESSION['user_id'] ?? null;

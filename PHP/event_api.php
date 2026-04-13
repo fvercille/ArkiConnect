@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: application/json');
 
-require_once __DIR__ . '/db_connect.php';er_db');
+require_once __DIR__ . '/db_connect.php';
 
 if ($conn->connect_error) {
     http_response_code(500);
