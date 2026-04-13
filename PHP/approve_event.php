@@ -84,7 +84,7 @@ if ($action === 'approve' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         flushResponse(json_encode(['success' => true, 'message' => 'Event approved successfully!']));
 
         // Slow emails run in background after browser already got success
-        sendApprovalEmail($event['org_name'], $event['title'], $admin_name);
+        //sendApprovalEmail($event['org_name'], $event['title'], $admin_name);
         //sendEventCreatedEmailToStudents($conn, $event['title'], $event['event_date'], $event['event_time'], $event['description'], $event['org_name']);
 
     } catch (Exception $e) {

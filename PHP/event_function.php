@@ -17,7 +17,7 @@ define('ARKICONNECT_SUPPORT', 'support@arkiconnect.example.com');
 // ==========================================
 // SEND REGISTRATION EMAIL TO STUDENT
 // ==========================================
-function sendRegistrationEmailWithDebug($studentEmail, $studentName, $event) {
+function //sendRegistrationEmailWithDebug($studentEmail, $studentName, $event) {
     error_log("=== REGISTRATION EMAIL DEBUG START ===");
     
     // Validate student email
@@ -96,7 +96,7 @@ function sendRegistrationEmailWithDebug($studentEmail, $studentName, $event) {
 // ==========================================
 // SEND EVENT APPROVAL EMAIL TO ORG REP
 // ==========================================
-function sendApprovalEmail($orgName, $eventTitle, $adminName = 'Admin') {
+function //sendApprovalEmail($orgName, $eventTitle, $adminName = 'Admin') {
     error_log("=== APPROVAL EMAIL DEBUG START ===");
     
     // Send to Arki Connect email (system email)
