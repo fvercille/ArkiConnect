@@ -4,9 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-include 'db_connect.php';
 
-$login_page_path = 'http://localhost/FinalProject1/PHP/login.php'; 
+
+$login_page_path = '/PHP/login.php';
 
 // Handle logout
 if (isset($_GET['logout'])) {
@@ -77,6 +77,13 @@ $calendarQuery = "SELECT DISTINCT DATE(e.event_date) as event_date, e.title
                   AND er.user_id = '$user_id'
                   ORDER BY e.event_date";
 $calendarResult = $conn->query($calendarQuery);
+$eventDates = [];
+
+if ($calendarResult) {
+    while ($row = $calendarResult->fetch_assoc()) {
+        $eventDates[$row['event_date']] = $row['title'];
+    }
+}
 $eventDates = [];
 
 while ($row = $calendarResult->fetch_assoc()) {
