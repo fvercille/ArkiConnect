@@ -81,17 +81,10 @@ $calendarResult = $conn->query($calendarQuery);
 $eventDates = [];
 
 if ($calendarResult) {
-   while ($calendarResult && $row = $calendarResult->fetch_assoc()) {
+    while ($row = $calendarResult->fetch_assoc()) {
         $eventDates[$row['event_date']] = $row['title'];
     }
 }
-$eventDates = [];
-
-while ($calendarResult && $row = $calendarResult->fetch_assoc()) {
-    $eventDates[$row['event_date']] = $row['title'];
-}
-
-
 
 $conn->close();
 ?>
