@@ -78,6 +78,7 @@ if (!isset($_GET['code']) && !isset($_POST['provider'])) {
 require 'vendor/autoload.php';
 
 session_start();
+require_once __DIR__ . '/db_connect.php';
 
 $providerName = '';
 $clientId = '';

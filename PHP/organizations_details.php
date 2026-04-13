@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+require_once __DIR__ . '/db_connect.php';
 
 $login_page_path = '/PHP/login.php';
 

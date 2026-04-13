@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 // Start session first
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
+require_once __DIR__ . '/db_connect.php';
 }
 
  

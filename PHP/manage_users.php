@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/db_connect.php';
 $pageTitle = 'Manage Users';
 
 // Mockup data - no database connection needed

@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+session_start();
+require_once __DIR__ . '/db_connect.php'; 
 
 $homeLink = 'index.php'; // default public homepage
 $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in

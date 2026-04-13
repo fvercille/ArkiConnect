@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+session_start();
+require_once __DIR__ . '/db_connect.php'; 
  
 $created_by = $_SESSION['user_id'] ?? 0;
  

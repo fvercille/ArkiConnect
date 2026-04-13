@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/db_connect.php';
 
 // Get logged-in user info FIRST before database connection
 $created_by = $_SESSION['user_id'] ?? 0;
